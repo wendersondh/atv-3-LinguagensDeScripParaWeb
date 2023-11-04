@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Questão 3</title>
+</head>
+<body>
+    <div class="container">
+
+        <header>
+            <h1>Atividade de Script</h1>
+        </header>
+
+        <div class="content">
+            <h2>Adicionar uma transação</h2>
+            <form>
+                <label class="descrição">descrição</label>
+                <input type="text" name="" id="inputDesc">
+                <label class="valor">Valor</label>
+                <input type="number" name="" id="inputNumber">
+                <button id="buttonAdd">Adicionar</button>
+            </form>    
+            
+            <h2>Transações adicionadas</h2>
+            <table class="tabelaTransações">
+                <thead>
+                    <tr>
+                        <th>descrição</th>
+                        <th>valor</th>
+                    </tr>
+                </thead>
+                <tbody id="bodyTable">
+                   
+                        
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Saldo total</th>
+                        <th id="saldoTotal">0</th>
+                    </tr>
+                </tfoot>
+            </table>
+                
+        </div>
+            
+    </div>    
+    <script src="script.js"></script>
+</body>
+</html>
