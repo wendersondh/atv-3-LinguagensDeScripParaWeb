@@ -1,47 +1,33 @@
 let evento = document.querySelector("#inpEvento");
-let data = document.querySelector("#inpData");
-let buttonAdd = document.getElementById("add");
+let inputData = document.querySelector("#inpData");
+let formulario = document.getElementById("inserir");
 const lista = document.getElementById("lista");
-
 let Eventos = [];
 
-buttonAdd.addEventListener("click", () => {
-
-    if(evento && data){
-        document.getElementById("inpEvento").values = ""
-        document.getElementById("inpData").values = ""
-        adicionarEvento(evento.value, data.value);
+class objetoEvento {
+    constructor(evento, data, hora) {
+        this.texto = evento;
+        this.time = data;
+        this.hora = hora
     }
-    console.log(Eventos);
-});
-
-function adicionarEvento(texto, data){
-    let objeto = {
-        nome: texto,
-        time: data
-    }
-    Eventos.push(objeto);
-    Eventos.sort((antes, depois) => antes.time.localeCompare(depois.time));
-    mostrarArray();
 }
 
-function mostrarArray(){
-    lista.replaceChildren();
+formulario.addEventListener("submit" , (e) => {
+    e.preventDefault();
 
-    Eventos.array.forEach(element => {
-        let novoEvento = document.createElement("div");
-        let texto = document.createElement("p");
-        let dataFormatada = formdata(element.data);
-        texto.textContent = `evento: ${element.nome} Data: ${dataFormatada}`;
-        novoEvento.appendChild(texto);
-        lista.appendChild(novoEvento);
-    });
-}
+    let data = inputData.value.slice(0, 10);
+    let hora = inputData.value.slice(11, 16);
 
-function formdata(data) {
-    let ano = data.getFullYear();
-    let mes = data.getMonth() + 1;
-    let dia = data.getDate();
+    let novoObjeto = new objetoEvento(evento.value, data, hora);
 
-    return `${dia}/${mes}/${ano}`;
-}
+    let novoEvento = document.createElement("li");
+    novoEvento.textContent = `Evento: ${novoObjeto.texto}; Horario: ${novoObjeto.hora}; Data: ${novoObjeto.time}`;
+
+    Eventos = [...Eventos, novoEvento];
+    Eventos.sort();
+
+    lista.replaceChildren(...Eventos);
+
+    inputData.value = "";
+    evento.value = "";
+})

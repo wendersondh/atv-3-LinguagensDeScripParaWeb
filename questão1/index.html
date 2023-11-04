@@ -3,17 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Questão 1</title>
 </head>
 <body>
-    <h1>lista de eventos em ordem cronológica</h1>
-    <h3>adicione um evento</h3>
-    <input type="text" id="inpEvento" placeholder="digite o nome do evento">
-    <input type="datetime-local" id="inpData" placeholder="digite a data do evento">
-    <button id="add">adicionar</button>
-    <p>lista</p>
-    <div id="lista">
+    <div class="container">
 
+        <header>
+            <h1>Atividade de Script</h1>
+        </header>
+
+        <main class="content">
+
+            <h2>lista de eventos</h2>
+
+            <p>adicione um evento</p>
+            <form id="inserir">
+                <div id="inputs">           
+                    <input type="text" id="inpEvento" placeholder="digite o nome do evento">
+                    <input type="datetime-local" id="inpData" placeholder="digite a data do evento">
+                </div>
+                <button type="submit" id="add">adicionar</button>
+            </form>
+            <ul id="lista">
+            </ul>
+        </main>
     </div>
     <script src="script.js"></script>
 </body>
